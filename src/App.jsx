@@ -18,7 +18,7 @@ function App() {
     transform: `translate(${position.x}px, ${position.y}px)`
   };
 
-
+//Pointer Event
   useEffect(() => {
     const handleMove = (e) => {
       const {clientX, clientY} = e;
@@ -39,6 +39,15 @@ function App() {
     }
   }, [enabled]);
 
+//Changes styles for the cursor
+useEffect(() => {
+  document.body.classList.toggle('no-cursor', enabled);
+
+  return () => {
+    document.body.classList.remove('no-cursor');
+
+  }
+}, [enabled])
 
   return (
     <> 
